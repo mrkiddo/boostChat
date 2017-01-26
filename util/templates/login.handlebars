@@ -1,18 +1,23 @@
 <div class="container">
-    <div class="body">
-        <div class="title">Sign In</div>
-        <div class="content">
-            <div class="item">
-                <label for="login-email">Email</label>
-                <input type="text" id="login-email" v-model="email">
-            </div>
-            <div class="item">
-                <label for="login-password">Password</label>
-                <input type="text" id="login-password" v-model="password">
-            </div>
-            <div class="item">
-                <button class="login-btn" v-on:click="login()">Sign In</button>
-            </div>
+    <div class="upper">
+        <div class="title">boostChat</div>
+    </div>
+    <div class="main">
+        <div class="login-wrapper">
+            <form class="login-panel">
+                <div class="input-wrapper">
+                    <input type="email" class="input email" placeholder="Enter your email" v-model="email">
+                </div>
+                <div class="input-wrapper">
+                    <input type="password" class="input password" placeholder="Type your password" v-model="password">
+                </div>
+                <div class="input-wrapper">
+                    <input type="submit" class="input submit" value="Sign In" v-on:click.stop.prevent="login()">
+                </div>
+            </form>
         </div>
+    </div>
+    <div class="footer">
+        <p>mr.kiddo 2017 @github</p>
     </div>
 </div>

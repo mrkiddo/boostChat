@@ -7,7 +7,8 @@
     "buildjs": "browserify -t hbsfy util/src/main.js > util/dist/bundle.js",
     "watchjs": "watchify -t hbsfy util/src/main.js -o util/dist/bundle.js",
     "scss": "node-sass util/stylesheets/main.scss util/dist/bundle.css",
-    "buildlogin": "browserify -t hbsfy util/src/login.js > util/dist/login.js"
+    "buildlogin": "browserify -t hbsfy util/src/login.js > util/dist/login.js",
+    "scsslogin": "node-sass util/stylesheets/login.scss util/dist/login.css"
   },
   "dependencies": {
     "body-parser": "~1.15.1",
