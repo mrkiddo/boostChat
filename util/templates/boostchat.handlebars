@@ -1,0 +1,10 @@
+<div class="top-container">
+    <div class="left-block">
+        <contact-list :cont.sync="contacts" :cont-info.sync="currentContact" :cont-index.sync="currentContactId" :user-info="user"></contact-list>
+    </div>
+    <div class="main-block">
+        <status-bar :cont-info="currentContact"></status-bar>
+        <message-wrapper :msg="currentMessages" :user-info="user" :show-history-bar="showHistoryFlag"></message-wrapper>
+        <input-wrapper :msg.sync="currentMessages" :user-info="user"></input-wrapper>
+    </div>
+</div>

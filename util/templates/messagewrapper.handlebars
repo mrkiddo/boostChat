@@ -1,0 +1,6 @@
+<div class="message-wrapper">
+    <div class="show-previous" v-on:click.stop.prevent="showHistory()" v-if="showHistoryBar">
+        <div class="content">Show Previous</div>
+    </div>
+    <message-item v-for="m in msg" :m="m" :u="userInfo"></message-item>
+</div>
