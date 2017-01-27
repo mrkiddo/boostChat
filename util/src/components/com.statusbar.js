@@ -15,7 +15,7 @@ module.exports = Vue.extend({
     methods: {
         signOut: function () {
             userSerivce.removeAuth();
-            location.href = "http://localhost:3000";
+            location.href = location.protocol + "//" + location.host;
             return false;
         }
     }
