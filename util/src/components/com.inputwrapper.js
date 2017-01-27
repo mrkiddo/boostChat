@@ -6,7 +6,7 @@ var template = require('../../templates/inputwrapper.handlebars');
 
 module.exports = Vue.extend({
     template: template(),
-    props: ['msg', 'userInfo', 'contactId'],
+    props: ['msg', 'userInfo', 'contInfo'],
     data: function () {
         return {
             input: ''

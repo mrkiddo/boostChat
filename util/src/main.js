@@ -36,11 +36,18 @@ var vm = new Vue({
     el: '.boost-chat-app',
     data: data,
     ready: function () {
+        this.adjustHeight();
         if(!auth.valid) {
             $(this.el).hide();
         }
         else {
             this.user = auth.authData;
+        }
+    },
+    methods: {
+        adjustHeight: function () {
+            var maxHeight = Math.max(window.innerHeight, 500);
+            $(this.$el).css('height', maxHeight + 'px');
         }
     }
 });

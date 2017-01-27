@@ -2,6 +2,11 @@
 
 .input-wrapper {
   @extend .basic-wrapper;
+
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
   text-align: center;
 
   input[name="message-input"] {

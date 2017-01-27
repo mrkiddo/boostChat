@@ -3,6 +3,12 @@
 .status-wrapper {
   @extend .basic-wrapper;
 
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+
   .contact-status {
     position: absolute;
     left: 43%;

@@ -1,4 +1,4 @@
-<div class="input-wrapper">
+<div class="input-wrapper" v-show="contInfo">
     <input type="text" name="message-input" v-model="input" v-on:keyup.enter.stop.prevent="submit()">
     <button class="message-submit" v-on:click.stop.prevent="submit()">Submit</button>
 </div>
