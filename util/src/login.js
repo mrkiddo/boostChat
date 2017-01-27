@@ -10,7 +10,8 @@ Vue.component('login-panel', componentLogin);
 var vm = new Vue({
     ready: function () {
         var loginContainer = $(this.$el).find('.container');
-        loginContainer.css('height', window.screen.availHeight + 'px');
+        var maxHeight = Math.max(window.innerHeight, 550);
+        loginContainer.css('height', maxHeight + 'px');
     },
     el: '.user-auth'
 });
