@@ -3,6 +3,7 @@ var router = express.Router();
 
 var passwordService = require('../service/passwordService');
 var onlineUserService = require('../service/onlineUserService');
+var userService = require('../service/userService');
 
 var jwt = require('jsonwebtoken');
 var User = require('../models/user');
@@ -149,7 +150,8 @@ router.post('/authenticate', function (req, res, next) {
                         email: user.email,
                         name: user.name,
                         id: user['_id'],
-                        token: token
+                        token: token,
+                        avatar: user.avatar
                     }
                 });
             }
@@ -216,46 +218,21 @@ router.post('/contactlist/update', function (req, res, next) {
 });
 
 router.get('/contactlist/reset/:userid', function (req, res, next) {
-    // TODO: as it's a reset method, should delete the record first and then add new one
     var userId = req.params.userid;
-    var query = User.find({});
-    query.select("_id, name");
-    var queryPromise = query.exec();
-    var userListLite = [];
-    queryPromise.then(function (users) {
-        users.forEach(function (user) {
-            var o = {
-                id: user.id,
-                name: user.name,
-                lastModifiedDate: new Date().getTime(),
-                isSticky: false,
-                isOnline: false
-            };
-            if(user.id != userId) {
-                userListLite.push(o);
+    userService.resetContactList(userId).then(function (doc) {
+        res.json({
+            success: true,
+            message: "reset contact list successfully",
+            data: {
+                userid: doc.userid,
+                list: doc.list
             }
         });
-    }).then(function () {
-        var newContactlist = new Contactlist({
-            userid: userId,
-            list: userListLite
-        });
-        var contactlistPromise = newContactlist.save();
-        contactlistPromise.then(function (doc) {
-            res.json({
-                success: true,
-                message: "create contact list successfully",
-                data: {
-                    userid: doc.userid,
-                    list: doc.list
-                }
-            });
-        }, function (err) {
-            res.json({
-                success: false,
-                message: "database error",
-                data: {}
-            });
+    }, function (err) {
+        res.json({
+            success: false,
+            message: "database error",
+            data: err
         });
     });
 });

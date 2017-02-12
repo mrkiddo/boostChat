@@ -9,7 +9,11 @@ var contactItem = new Schema({
     name: String,
     lastModifiedDate: String,
     isSticky: Boolean,
-    isOnline: Boolean
+    isOnline: Boolean,
+    avatar: {
+        type: String,
+        default: 'default'
+    }
 });
 
 module.exports = mongoose.model('Contactlist', new Schema({

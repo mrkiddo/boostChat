@@ -8,5 +8,9 @@ module.exports = mongoose.model('User', new Schema({
     name: String,
     salt: String,
     password: String,
-    email: String
+    email: String,
+    avatar: {
+        type: String,
+        default: 'default'
+    }
 }));

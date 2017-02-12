@@ -5,6 +5,11 @@ var Vue = require('vue');
 var template = require('../../templates/contactlist.handlebars');
 var userService = require('../services/userService');
 
+Vue.filter('avatarPath', function (avatarName) {
+    avatarName = avatarName || 'default';
+    return '/images/avatar/' + avatarName + '.jpg';
+});
+
 module.exports = Vue.extend({
     template: template(),
     props: ['cont', 'contIndex', 'userInfo', 'contInfo'],
@@ -36,7 +41,5 @@ module.exports = Vue.extend({
                     }
                 });
         }
-    },
-    watch: {
     }
 });

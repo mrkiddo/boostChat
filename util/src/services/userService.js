@@ -17,20 +17,23 @@ var userService = {
         localStorage.setItem('user-auth-userid', o.id);
         localStorage.setItem('user-auth-name', o.name);
         localStorage.setItem('user-auth-token', o.token);
+        localStorage.setItem('user-auth-avatar', o.avatar);
         return authData;
     },
     checkUserAuth: function () {
         var authToken = localStorage.getItem('user-auth-token'),
             email = localStorage.getItem('user-auth-email'),
             name = localStorage.getItem('user-auth-name'),
-            id = localStorage.getItem('user-auth-userid');
+            id = localStorage.getItem('user-auth-userid'),
+            avatar = localStorage.getItem('user-auth-avatar');
         var result = {
             valid: true,
             authData: {
                 token: authToken,
                 email: email,
                 name: name,
-                userid: id
+                userid: id,
+                avatar: avatar
             }
         };
         if(authToken) {
@@ -52,6 +55,7 @@ var userService = {
         localStorage.removeItem('user-auth-userid');
         localStorage.removeItem('user-auth-name');
         localStorage.removeItem('user-auth-token');
+        localStorage.removeItem('user-auth-avatar');
     },
     getUserList: function (userId) {
         return $.ajax({

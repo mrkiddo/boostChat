@@ -1,13 +1,18 @@
 <div class="contact-list">
     <div class="head-wrapper">
         <div class="user-name">\{{userInfo.name}}</div>
+        <div>
+            <img v-bind:src="userInfo.avatar | avatarPath" alt="avatar">
+        </div>
     </div>
     <div class="list-wrapper">
         <ul>
             <li v-for="contact in cont">
                 <div class="list-item" v-bind:class="{active: $index == selectedIndex}"
                      v-on:click.stop.prevent="select(contact.id, $index, contact)">
-                    <div class="contact-img"></div>
+                    <div class="contact-img">
+                        <img v-bind:src="contact.avatar | avatarPath" alt="avatar">
+                    </div>
                     <div class="contact-name">
                         <div class="contact-name-content">\{{contact.name}}</div>
                     </div>
