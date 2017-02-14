@@ -33,7 +33,12 @@ Vue.filter('timeConvert', function (value) {
     return result;
 });
 
+Vue.filter('avatarPath', function (avatarName) {
+    avatarName = avatarName || 'default';
+    return '/images/avatar/' + avatarName + '.jpg';
+});
+
 module.exports = Vue.extend({
     template: template(),
-    props: ['m', 'u']
+    props: ['m', 'u', 'c']
 });

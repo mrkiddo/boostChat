@@ -1,5 +1,6 @@
 <div class="message-item" v-bind:class="{reverse: m.sender == u.userid}" data-sender="\{{m.sender}}" data-receiver="\{{m.receiver}}">
-    <span class="message-contact">aa</span>
+    <img v-if="m.sender != u.userid" class="message-contact" v-bind:src="c.avatar | avatarPath" alt="avatar">
+    <img v-else class="message-contact" v-bind:src="u.avatar | avatarPath" alt="avatar">
     <span class="message-content">\{{m.content}}</span>
     <span class="message-time">\{{m.timestamp | timeConvert}}</span>
     <div class="clear"></div>

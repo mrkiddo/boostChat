@@ -9,6 +9,7 @@
   padding-top: 70px;
   padding-bottom: 85px;
   overflow-y: scroll;
+  background-color: #b3d9ff;
 
   .message-item {
 
@@ -39,7 +40,7 @@
       padding-left: 15px;
       padding-right: 15px;
       padding-top: 13px;
-      background-color: #fff;
+      background-color: #ccffcc;
       border-radius: 5px;
       box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
     }
@@ -68,6 +69,7 @@
 
     .message-content {
       float: right;
+      background-color: #ffffe6;
     }
 
     .message-time {

@@ -4,7 +4,7 @@
     </div>
     <div class="main-block">
         <status-bar :cont-info="currentContact"></status-bar>
-        <message-wrapper :msg="currentMessages" :user-info="user" :show-history-bar="showHistoryFlag"></message-wrapper>
+        <message-wrapper :msg="currentMessages" :user-info="user" :contact-info="currentContact" :show-history-bar="showHistoryFlag"></message-wrapper>
         <input-wrapper :msg.sync="currentMessages" :user-info="user" :cont-info="currentContact"></input-wrapper>
     </div>
 </div>

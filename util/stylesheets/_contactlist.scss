@@ -1,8 +1,49 @@
 .contact-list {
 
   .head-wrapper {
-    height: 50px;
-    background-color: #eee;
+    position: relative;
+    height: $top-bar-height;
+    background-color: #b3b3cc;
+
+    .user-avatar, .user-name {
+      display: inline-block;
+    }
+
+    .user-avatar {
+      padding: 10px;
+    }
+
+    .user-avatar .user-avatar-img {
+      width: $left-block-list-item-height / 2;
+      height: $left-block-list-item-height / 2;
+      border-radius: 50em;
+    }
+
+    .user-name {
+      position: absolute;
+      top: 14px;
+      padding: 5px 10px;
+      border-radius: 25em;
+      background-color: #e0e0eb;
+      font-size: 20px;
+    }
+
+    .user-setting {
+      position: absolute;
+      top: 15px;
+      right: 30px;
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      border-radius: 50em;
+      background-color: #e0e0eb;
+      background-image: url("../images/assets/logout.png");
+      cursor: pointer;
+
+      &:hover {
+        background-color: #ffffff;
+      }
+    }
   }
 
   .list-wrapper {
@@ -25,10 +66,15 @@
       .contact-img {
         display: inline-block;
         position: absolute;
-        left: 0;
-        height: $left-block-list-item-height;
-        width: $left-block-list-item-height;
-        background-color: #888;
+        left: 10px;
+        background-color: transparent;
+
+        img {
+          width: $left-block-list-item-height;
+          height: $left-block-list-item-height;
+          border-radius: 50em;
+          box-shadow: 1px 1px 1px #ccc;
+        }
       }
 
       .contact-name {
@@ -40,18 +86,25 @@
       }
 
       .contact-name-content {
-        text-align: center;
         padding-top: ($left-block-list-item-height - 25) / 2;
+        padding-left: 25px;
         font-size: 25px;
       }
 
       .contact-control {
+        position: absolute;
+        right: 30px;
+        top: 35px;
         display: inline-block;
         box-sizing: border-box;
 
         .sticky-button {
-          background-color: #fff;
+          width: 30px;
+          height: 30px;
           border: 0;
+          border-radius: 50em;
+          background-color: #fff;
+          background-image: url("../images/assets/sticky.png");
         }
 
         .sticky-button.active {
@@ -61,7 +114,7 @@
     }
 
     .list-item.active {
-      background-color: #ccc;
+      background-color: #b3d9ff;
     }
   }
 

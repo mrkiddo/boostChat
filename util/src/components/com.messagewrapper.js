@@ -9,7 +9,7 @@ Vue.component('message-item', componentMessageItem);
 
 module.exports = Vue.extend({
     template: template(),
-    props: ['msg', 'userInfo', 'showHistoryBar'],
+    props: ['msg', 'userInfo', 'contactInfo', 'showHistoryBar'],
     watch: {
         'msg': function (value, oldValue) {
             this.$el.scrollTop = this.$el.scrollHeight;

@@ -3,6 +3,9 @@
 .status-wrapper {
   @extend .basic-wrapper;
 
+  height: $top-bar-height;
+  background-color: #a3a3c2;
+
   position: absolute;
   top: 0;
   left: 0;
@@ -23,16 +26,6 @@
     padding-left: 8px;
     padding-right: 8px;
     border-radius: 25em;
-  }
-
-  .contact-setting {
-    position: absolute;
-    right: 20px;
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    background-color: #eee;
-    border-radius: 50em;
   }
 
 }

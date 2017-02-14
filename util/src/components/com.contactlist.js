@@ -40,6 +40,11 @@ module.exports = Vue.extend({
                         }
                     }
                 });
+        },
+        signOut: function () {
+            userService.removeAuth();
+            location.href = location.protocol + "//" + location.host;
+            return false;
         }
     }
 });

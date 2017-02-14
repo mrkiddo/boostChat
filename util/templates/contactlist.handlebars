@@ -1,9 +1,10 @@
 <div class="contact-list">
     <div class="head-wrapper">
-        <div class="user-name">\{{userInfo.name}}</div>
-        <div>
-            <img v-bind:src="userInfo.avatar | avatarPath" alt="avatar">
+        <div class="user-avatar">
+            <img v-bind:src="userInfo.avatar | avatarPath" class="user-avatar-img" alt="avatar">
         </div>
+        <div class="user-name">\{{userInfo.name}}</div>
+        <div class="user-setting" v-on:click="signOut()" title="Sign Out"></div>
     </div>
     <div class="list-wrapper">
         <ul>
@@ -18,7 +19,7 @@
                     </div>
                     <div class="contact-control">
                         <button class="sticky-button" v-bind:class="{active: contact.isSticky == true}"
-                                v-on:click.stop.prevent="updateSticky(contact.id, $index)">Stk</button>
+                                v-on:click.stop.prevent="updateSticky(contact.id, $index)"></button>
                     </div>
                 </div>
             </li>

@@ -3,6 +3,8 @@
 .input-wrapper {
   @extend .basic-wrapper;
 
+  background-color: #99ccff;
+
   position: absolute;
   left: 0;
   bottom: 0;
@@ -18,7 +20,7 @@
     box-sizing: border-box;
     outline: none;
     box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.26);
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .message-submit {
@@ -30,9 +32,14 @@
     outline: none;
     box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.26);
     font-size: 18px;
+    border-top-right-radius: 25em;
+    border-bottom-right-radius: 25em;
+    background-color: #66b3ff;
+    color: #ffffff;
   }
 
   .message-submit:hover {
-    background-color: #eee;
+    background-color: #cce6ff;
+    color: #4da6ff;
   }
 }
