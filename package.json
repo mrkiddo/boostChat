@@ -1,7 +1,15 @@
 {
   "name": "boostChat",
-  "version": "0.0.0",
+  "version": "0.1.0",
+  "author": {
+    "name": "Jiawei Luo",
+    "email": "weiwei100fun@hotmail.com"
+  },
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mrkiddo/boostChat"
+  },
   "scripts": {
     "start": "node ./bin/www",
     "buildjs": "browserify -t hbsfy util/src/main.js > util/dist/bundle.js",
