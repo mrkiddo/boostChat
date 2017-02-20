@@ -10,6 +10,17 @@ var Contactlist = require('../models/contactlist');
 
 var userService = {};
 
+userService.findUserExist = function (email, password) {
+    var query = User.findOne({email: email, password: password});
+    return query.exec();
+};
+
+userService.getUserList = function () {
+    var query = User.find({});
+    query.select("_id, name");
+    return query.exec();
+};
+
 userService.resetContactList = function (userId) {
     if(!userId) {
         return false;

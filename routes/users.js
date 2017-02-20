@@ -8,58 +8,31 @@ var userService = require('../service/userService');
 var jwt = require('jsonwebtoken');
 var User = require('../models/user');
 var Contactlist = require('../models/contactlist');
+var userValidate = require('../middlewares/userValidate');
 
-var debugFlag = true;
-
-router.use(function (req, res, next) {
-    var whiteList = ['/users/', '/users/create', '/users/authenticate', '/users/verifytoken'];
-    var whiteListFlag = false;
-    var requestUrl = req.originalUrl;
-    for(var i = 0; i < whiteList.length; i++) {
-        if(whiteList[i] == requestUrl) {
-            whiteListFlag = true;
-        }
-    }
-    if(whiteListFlag || debugFlag) {
-        next();
-    }
-    else {
-        var token = req.headers['x-access-token'];
-        jwt.verify(token, req.app.get('secret'), function (err, decoded) {
-            if(err) {
-                res.status(403).send({
-                    success: false,
-                    message: 'Fail to authenticate user identity.'
-                });
-            }
-            next();
-        });
-    }
-});
+router.use(userValidate);
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  var query = User.find({});
-  query.select("_id, name");
-  var queryPromise = query.exec();
-  var userListLite = [];
-  queryPromise.then(function (users) {
-      users.forEach(function (user) {
-          var o = {
+    var getUserList = userService.getUserList();
+    var userListLite = [];
+    getUserList.then(function (users) {
+        users.forEach(function (user) {
+            var o = {
               id: user.id,
               name: user.name
-          };
-          if(user) {
+            };
+            if(user) {
               userListLite.push(o);
-          }
-      });
-  }).then(function () {
-      res.json({
+            }
+        });
+    }).then(function () {
+        res.json({
           success: true,
           message: 'get user list successfully',
           data: userListLite
-      });
-  });
+        });
+    });
 });
 
 router.post('/create', function (req, res, next) {

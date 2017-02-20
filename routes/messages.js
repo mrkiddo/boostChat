@@ -4,30 +4,10 @@
 var express = require('express');
 var router = express.Router();
 
-var jwt = require('jsonwebtoken');
-
 var messageService = require('../service/messageService');
+var userValidate = require('../middlewares/userValidate');
 
-
-var debugFlag = true;
-
-router.use(function (req, res, next) {
-    if(debugFlag) {
-        next();
-    }
-    else {
-        var token = req.headers['x-access-token'];
-        jwt.verify(token, req.app.get('secret'), function (err, decoded) {
-            if(err) {
-                res.status(403).send({
-                    success: false,
-                    message: 'Fail to authenticate user identity.'
-                });
-            }
-            next();
-        });
-    }
-});
+router.use(userValidate);
 
 router.post('/list', function (req, res, next) {
     var userId = req.body.userid || '';

@@ -90,10 +90,14 @@ module.exports = Vue.extend({
             var newMessage = {
                 sender: self.user.userid,
                 receiver: self.currentContactId,
-                content: content
+                content: content,
+                timestamp: new Date().getTime()
             };
+            var messageDataToSave = {};
             self.currentMessages.push(newMessage);
-            self.socket.emit('userChatMessage', newMessage);
+            messageDataToSave = Object.assign(messageDataToSave, newMessage);
+            delete messageDataToSave.timestamp;
+            self.socket.emit('userChatMessage', messageDataToSave);
         }
     },
     methods: {
